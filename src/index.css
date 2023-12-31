@@ -39,3 +39,16 @@ h1,h2,h3,h4,h5{
     bg-pColor
     text-white
 }
+
+.error_con{
+    @apply
+    m-5
+    p-5
+    bg-red-500
+    text-center
+}
+
+.breadcrumbs_con{}
+.breadcrumbs_con .crumbItem{ vertical-align: middle;}
+.breadcrumbs_con .crumbItem:after{content: '\27A4'; display: inline-block; vertical-align: middle; margin-inline: 5px;}
+.breadcrumbs_con .crumbItem:last-child:after{display: none;}

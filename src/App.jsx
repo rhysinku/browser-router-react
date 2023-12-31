@@ -2,12 +2,13 @@ import { createBrowserRouter, Route, createRoutesFromElements, RouterProvider } 
 import RootLayout from "./layout/RootLayout"
 import AboutUs from "./pages/AboutUs"
 import ContactUs from "./pages/ContactUs"
-import Portfolio, { portLoader } from "./pages/Portfolio"
-import PortfolioDetails, { careerDataLoader } from "./pages/PortfolioDetails"
+import Portfolio, { portLoader } from "./pages/Portfolio/Portfolio"
+import PortfolioDetails, { careerDataLoader } from "./pages/Portfolio/PortfolioDetails"
 import Home from "./pages/Home"
 import Faq from "./pages/Faq"
 import Page404 from "./pages/Page404"
 import PortfolioLayout from "./layout/PortfolioLayout"
+import PortfolioError from "./pages/Portfolio/PortfolioError"
 
 
 
@@ -19,8 +20,8 @@ function App() {
         <Route index element={ <Home/>}  />
         <Route path="aboutus" element={ <AboutUs/>}  />
 
-        <Route path="portfolio" element={ <PortfolioLayout/>}>
-            <Route  index loader={portLoader}  element={ <Portfolio/>}/>
+        <Route path="portfolio" element={ <PortfolioLayout/>} errorElement={<PortfolioError/>}>
+            <Route  index loader={portLoader}   element={ <Portfolio/>}/>
             <Route path=":id" loader={careerDataLoader} element={<PortfolioDetails/>} />
        </Route>
 
